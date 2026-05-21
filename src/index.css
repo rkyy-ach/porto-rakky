@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Mengimpor font tulisan tangan Google Fonts untuk quote */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+.quotes {
+  font-family: 'Caveat', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
