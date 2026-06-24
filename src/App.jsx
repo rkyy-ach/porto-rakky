@@ -10,6 +10,7 @@ import "/gambar/DSC08990.JPG";
 import "/gambar/IMG_2138.JPG";
 import "/gambar/IMG_2146.JPG";
 import "/gambar/IMG_2164.JPG";
+import "/gambar/DSC00130.JPG";
 
 // Komponen Pembungkus Animasi biar gampang dan anti-error
 function ScrollAnimate({ children }) {
@@ -70,14 +71,14 @@ function App() {
 
   return (
     /* Menambahkan id="home" agar menu Home di bawah bisa berfungsi dengan benar */
-    <div id="home" className="bg-black text-white font-sans min-h-screen selection:bg-red-600 selection:text-white scroll-smooth">
+    <div id="home" className="bg-neutral-900 text-white font-sans min-h-screen selection:bg-red-600 selection:text-white scroll-smooth">
       
      {/* NAVBAR DENGAN EFEK SEMBUNYI/TIMBUL */}
-      <nav className={`bg-red-600 text-white px-6 py-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50 shadow-md transition-transform duration-300 ${
+      <nav className={`bg-black text-white px-6 py-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50 shadow-md transition-transform duration-300 ${
         showNavbar ? 'translate-y-0' : '-translate-y-full'
       }`}>
         <div className="text-xl font-black tracking-wider">
-          Rakky<span className="text-black">Achmad</span>
+          Rakky<span className="text-gray-400">Achmad</span>
         </div>
         <div className="flex gap-6 text-sm font-bold">
           <a href="#experience" className="hover:underline">My Experience</a>
@@ -86,44 +87,59 @@ function App() {
       </nav>
 
       {/* HERO SECTION */}
-      <header className="min-h-screen md:h-screen w-full flex flex-col md:flex-row bg-neutral-200 text-black border-b-8 border-red-600 pt-[60px] box-border overflow-hidden">
-        {/* Sisi Kiri: Penuhin Gambar */}
-        <div className="w-full md:w-1/2 h-1/2 md:h-full relative bg-neutral-400 overflow-hidden">
-          <img 
-            src="/gambar/DSC08990.JPG" 
-            alt="Rakky Achmad" 
-           className="w-full h-full object-cover grayscale object-[center_25%]" 
-          />
-        </div>
-        
-        {/* Sisi Kanan: Tulisan & Quote */}
-        <div className="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 flex flex-col justify-center items-start bg-neutral-200">
-          <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tight leading-none bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent">
-  Rakky Achmad <br /> Baihaqi
-</h1>
-          <p className="text-xs font-bold tracking-widest text-neutral-600 mt-2 uppercase">Portfolio</p>
-          
-          {/* Kuot Sindiran */}
-          <div className="my-8 max-w-lg">
-            <p className="text-2xl md:text-3xl text-red-700 italic leading-relaxed quotes">
-              "Hanya dicari saat yang lain tidak bisa diandalkan. Sungguh sebuah kehormatan yang semu."
-            </p>
-          </div>
+<header className="relative h-screen w-full flex flex-col justify-center items-center text-white px-4 md:px-8 box-border overflow-hidden">
+  
+  {/* Background Image dengan Overlay Gelap */}
+  <div className="absolute inset-0 z-0">
+    <img 
+      src="/gambar/DSC00130.JPG" 
+      alt="Rakky Achmad" 
+      className="w-full h-full object-cover brightness-[0.25]" 
+    />
+  </div>
+  
+  {/* Konten Utama (Diturunkan sedikit agar pas di tengah) */}
+  <div className="relative z-10 flex flex-col justify-center items-center text-center max-w-4xl mx-auto mt-12 md:mt-16">
+    
+    {/* Tulisan Kecil "PORTFOLIO" */}
+    <p className="text-xs md:text-sm font-semibold tracking-[0.4em] text-neutral-400 uppercase mb-3">
+      Portfolio
+    </p>
 
-          <div className="flex gap-4">
-            <a href="#contact" className="bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-3 px-8 rounded-sm flex items-center gap-2 transition-all uppercase tracking-wider">
-              Contact <span className="text-xs">↗</span>
-            </a>
-            <a href="#about" className="bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-3 px-8 rounded-sm flex items-center gap-2 transition-all uppercase tracking-wider">
-              About me <span className="text-xs">↗</span>
-            </a>
-          </div>
-        </div>
-      </header>
+    {/* Nama Besar */}
+   <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tight leading-none drop-shadow-md bg-gradient-to-r from-neutral-100 via-neutral-300 to-neutral-700 bg-clip-text text-transparent">
+  Rakky Achmad <br className="block md:hidden" /> Baihaqi
+</h1>
+    
+    {/* Quote/Kutipan */}
+    <div className="mt-6 mb-8 max-w-xl px-4">
+      <p className="text-base md:text-lg text-neutral-300 italic font-normal leading-relaxed">
+        "Hanya dicari saat yang lain tidak bisa diandalkan. <br className="hidden md:block" /> Sungguh sebuah kehormatan yang semu."
+      </p>
+    </div>
+
+    {/* Tombol Aksi */}
+    <div className="flex flex-row gap-4 w-auto justify-center">
+      <a 
+        href="#contact" 
+        className="bg-neutral-900/80 hover:bg-neutral-800/90 text-white text-sm md:text-base font-medium py-3 px-6 md:px-8 rounded-lg flex items-center justify-center gap-2 transition-all backdrop-blur-sm border border-neutral-800"
+      >
+        Contact <span className="text-xs md:text-sm text-blue-400">↗</span>
+      </a>
+      <a 
+        href="#about" 
+        className="bg-neutral-900/80 hover:bg-neutral-800/90 text-white text-sm md:text-base font-medium py-3 px-6 md:px-8 rounded-lg flex items-center justify-center gap-2 transition-all backdrop-blur-sm border border-neutral-800"
+      >
+        About me <span className="text-xs md:text-sm text-blue-400">↗</span>
+      </a>
+    </div>
+
+  </div>
+</header>
 
       {/* ABOUT ME SECTION (DIKASIH ANIMASI) */}
       <ScrollAnimate>
-        <section id="about" className="md:h-screen bg-gradient-to-b from-red-600 via-red-700 to-black p-8 mb-30 md:p-12 text-white">
+        <section id="about" className="md:h-screen bg-gradient-to-b from-white via-gray-950 to-black p-8 mb-30 md:p-12 text-white">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="w-full md:w-2/3">
               <h2 className="text-4xl md:text-9xl font-black tracking-tighter mb-4 uppercase">ABOUT ME</h2>
@@ -137,7 +153,7 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
               </p>
             </div>
             <div className="w-full md:w-1/3 flex justify-end">
-              <div className="w-full max-w-xs aspect-[4/5] bg-black border-4 border-red-700 shadow-xl overflow-hidden">
+              <div className="w-full max-w-xs aspect-[4/5] bg-black shadow-xl overflow-hidden">
                 <img 
                   src="/gambar/IMG_2164.JPG" 
                   alt="Photography" 
@@ -153,23 +169,23 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
       <ScrollAnimate>
         <section id="experience" className="p-8 mb-30 md:p-12 max-w-6xl mx-auto">
           <h2 className="text-7xl font-black mb-6 uppercase tracking-tight">
-            <span className="text-red-500 text-1xl font-bold mb-1 lowercase normal-case tracking-normal">my</span>
+            <span className="text-gray-600 text-1xl font-bold mb-1 lowercase normal-case tracking-normal">my</span>
             EXPERIENCE
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white border border-neutral-800 p-4 shadow-md group hover:border-red-600 transition-all">
+            <div className="bg-white border border-neutral-800 p-4 shadow-md group hover:border-gray-700 transition-all">
               <div className="w-full aspect-[4/3] bg-neutral-800 overflow-hidden mb-4">
                 <img src="/gambar/IMG_2138.JPG" alt="Photography" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" />
               </div>
-              <h3 className="text-3xl font-black text-red-600 uppercase tracking-tighter leading-none">PHOTOGRAPHY.</h3>
+              <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tighter leading-none">PHOTOGRAPHY.</h3>
             </div>
 
-            <div className="bg-white border border-neutral-800 p-4 shadow-md group hover:border-red-600 transition-all">
+            <div className="bg-white border border-neutral-800 p-4 shadow-md group hover:border-gray-700 transition-all">
               <div className="w-full aspect-[4/3] bg-neutral-800 overflow-hidden mb-4">
                 <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=500" alt="Coding" className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300" />
               </div>
-              <h3 className="text-3xl font-black text-red-600 uppercase tracking-tighter leading-none">CODING.</h3>
+              <h3 className="text-3xl font-black text-gray-950 uppercase tracking-tighter leading-none">CODING.</h3>
             </div>
           </div>
         </section>
@@ -179,7 +195,7 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
 <ScrollAnimate>
   <section id="performance" className="py-12 md:py-16 max-w-6xl mx-auto px-4 box-border">
     {/* Judul Section */}
-    <h2 className="text-5xl md:text-7xl font-black uppercase mb-8 tracking-tighter bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
+    <h2 className="text-5xl md:text-7xl font-black uppercase mb-8 tracking-tighter bg-gradient-to-r from-gray-400 to-gray-950 bg-clip-text text-transparent">
   PERFORMANCE
 </h2>
     
@@ -210,7 +226,7 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
       </div>
 
       {/* Sisi Kanan (Foto Profil Vertikal Menangkap Kamera) */}
-      <div className="bg-neutral-300 aspect-[3/4] md:aspect-auto w-full overflow-hidden border-l-4 border-red-600 rounded-sm shadow-md">
+      <div className="bg-neutral-300 aspect-[3/4] md:aspect-auto w-full overflow-hidden  rounded-sm shadow-md">
         <img src="/gambar/IMG_2146.JPG" alt="Vertical Profile" className="w-full h-full object-cover grayscale brightness-90" />
       </div>
 
@@ -222,14 +238,14 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
       <ScrollAnimate>
         <section id="projects" className="p-8 md:p-12 bg-neutral-950">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-7xl font-black text-center mb-8 uppercase tracking-tight">
-              COMPLETED <span className="text-red-600">PROJECTS</span>
-            </h2>
+            <h2 className="text-7xl font-black text-center mb-8 uppercase tracking-tight text-white">
+  COMPLETED <span className="bg-gradient-to-r from-gray-800 to-gray-400 bg-clip-text text-transparent">PROJECTS</span>
+</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               
               {/* Project 1 - XPBoost Roadmap */}
-              <div className="bg-gradient-to-b from-red-600 to-red-800 p-6 flex flex-col items-center text-center rounded-sm shadow-xl border border-red-500">
+              <div className="bg-gradient-to-b from-gray-500 to-gray-900 p-6 flex flex-col items-center text-center rounded-sm shadow-xl">
                 <div className="w-full aspect-[16/9] bg-sky-900 mb-4 rounded-sm border border-sky-400/30 overflow-hidden shadow-inner relative group">
                   <img 
                     src="/gambar/xpboost.png" 
@@ -242,7 +258,7 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
                 </div>
 
                 <h3 className="text-xl font-black text-white uppercase tracking-tight mb-2">XPBoost Roadmap</h3>
-                <p className="text-xs text-red-200 leading-relaxed mb-6">
+                <p className="text-xs text-white leading-relaxed mb-6">
                   XPBoost adalah platform berbasis roadmap interaktif yang dirancang untuk memandu proses pembelajaran Anda langkah demi langkah. Temukan jalur belajar yang terstruktur, tingkatkan kompetensi Anda, dan capai target profesional secara lebih efisien.
                 </p>
                 
@@ -250,14 +266,14 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
                   href="https://xpboost-adz.vercel.app/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="mt-auto bg-white hover:bg-neutral-200 text-red-800 font-black text-xs px-6 py-2 rounded-sm shadow uppercase tracking-widest transition-all inline-block text-center"
+                  className="mt-auto bg-white hover:bg-neutral-200 text-gray-900 font-black text-xs px-6 py-2 rounded-sm shadow uppercase tracking-widest transition-all inline-block text-center"
                 >
                   click
                 </a>
               </div>
 
               {/* Project 2 - YO!gort */}
-              <div className="bg-gradient-to-b from-red-600 to-red-800 p-6 flex flex-col items-center text-center rounded-sm shadow-xl border border-red-500">
+              <div className="bg-gradient-to-b from-gray-500 to-gray-800 p-6 flex flex-col items-center text-center rounded-sm shadow-xl ">
                 <div className="w-full aspect-[16/9] bg-amber-50 mb-4 rounded-sm border border-amber-200 overflow-hidden shadow-inner relative group">
                   <img 
                     src="/gambar/yogort.png" 
@@ -270,7 +286,7 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
                 </div>
 
                 <h3 className="text-xl font-black text-white uppercase tracking-tight mb-2">YO!gort</h3>
-                <p className="text-xs text-red-200 leading-relaxed mb-6">
+                <p className="text-xs text-white leading-relaxed mb-6">
                   YO!gort menyajikan produk yogurt premium berkualitas tinggi yang dibuat dari bahan-bahan alami pilihan. Kami berkomitmen untuk menghadirkan kelezatan yang autentik sekaligus nutrisi terbaik demi mendukung gaya hidup sehat Anda setiap hari.
                 </p>
                 
@@ -278,7 +294,7 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
                   href="https://yo-gort.vercel.app/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="mt-auto bg-white hover:bg-neutral-200 text-red-800 font-black text-xs px-6 py-2 rounded-sm shadow uppercase tracking-widest transition-all inline-block text-center"
+                  className="mt-auto bg-white hover:bg-neutral-200 text-gray-900 font-black text-xs px-6 py-2 rounded-sm shadow uppercase tracking-widest transition-all inline-block text-center"
                 >
                   click
                 </a>
@@ -290,14 +306,14 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
 
       {/* FOOTER & CONTACT (FULL SCREEN & FULL WIDTH) */}
       <ScrollAnimate>
-        <footer id="contact" className="h-screen w-full bg-neutral-100 text-neutral-800 flex flex-col justify-between border-t-8 border-red-600 box-border m-0 p-0 overflow-hidden">
+        <footer id="contact" className="h-screen w-full bg-gray-800 text-neutral-800 flex flex-col justify-between border-t-8 ">
           
           <div className="flex-1 flex flex-row justify-between items-start w-full px-12 md:px-24 pt-24 pb-12 box-border">
             
             {/* BAGIAN KIRI: Navigasi (Tautan di-update agar aktif menuju id section) */}
             <div className="flex flex-col gap-2 text-left">
-              <h3 className="text-neutral-400 font-medium italic text-base md:text-lg tracking-wide">Navigation</h3>
-              <ul className="flex flex-col gap-4 font-normal text-neutral-500 italic text-base md:text-lg">
+              <h3 className="text-white font-medium italic text-base md:text-lg tracking-wide">Navigation</h3>
+              <ul className="flex flex-col gap-4 font-normal text-white italic text-base md:text-lg">
                 <li><a href="#home" className="hover:text-red-600 transition-colors">Home</a></li>
                 <li><a href="#performance" className="hover:text-red-600 transition-colors">Performance</a></li>
                 <li><a href="#contact" className="hover:text-red-600 transition-colors">Contact</a></li>
@@ -306,8 +322,8 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
 
             {/* BAGIAN KANAN: Email */}
             <div className="flex flex-col gap-1 text-left max-w-md md:max-w-xl">
-              <span className="text-neutral-400 font-medium italic text-base md:text-lg tracking-wide">Email:</span>
-              <p className="text-neutral-500 italic text-lg md:text-2xl font-normal break-all tracking-tight">
+              <span className="text-white   font-medium italic text-base md:text-lg tracking-wide">Email:</span>
+              <p className="text-white italic text-lg md:text-2xl font-normal break-all tracking-tight">
                 rakkyachmadbaihaqibaihaqi@gmail.com
               </p>
             </div>
@@ -320,8 +336,8 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
             <div className="w-[85%] border-t border-neutral-300 my-4"></div>
 
             <div className="w-[85%] flex flex-row justify-start items-center gap-6 pb-12 px-2">
-              <p className="font-normal italic text-2xl md:text-3xl text-neutral-800 tracking-wide mr-4">Contact Me:</p>
-              <div className="flex gap-6 text-neutral-900">
+              <p className="font-normal italic text-2xl md:text-3xl text-white tracking-wide mr-4">Contact Me:</p>
+              <div className="flex gap-6 text-white">
                 <a href="https://www.instagram.com/rakkyachmdd/" target='_blank' rel="noreferrer" className="hover:text-red-600 hover:scale-110 transition-all">
                   <svg className="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                 </a>
@@ -339,7 +355,7 @@ Di samping itu, saya sangat bersyukur dan bahagia bisa menjalani keseharian seba
               </div>
             </div>
 
-            <div className="w-full bg-red-600 text-white text-[10px] md:text-xs text-center py-4 font-mono tracking-widest uppercase font-bold m-0 border-none">
+            <div className="w-full bg-gray-900 text-white text-[10px] md:text-xs text-center py-4 font-mono tracking-widest uppercase font-bold m-0 border-none">
               © 2026 RAKKY ACHMAD. ALL RIGHTS RESERVED.
             </div>
 
